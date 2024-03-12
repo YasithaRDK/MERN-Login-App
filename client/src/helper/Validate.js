@@ -24,6 +24,15 @@ export const resetPasswordValidate = (values) => {
   return errors;
 };
 
+/**Validate register form */
+export const registerFormValidation = (values) => {
+  const errors = usernameVerify({}, values);
+  passwordVerify(errors, values);
+  emailVerify(errors, values);
+
+  return errors;
+};
+
 /************************************************************** */
 
 /**Validate username */
@@ -51,6 +60,18 @@ const passwordVerify = (error = {}, values) => {
     );
   } else if (!specialChars.test(values.password)) {
     error.username = toast.error("Password must have special characters");
+  }
+  return error;
+};
+
+/**Validate email */
+const emailVerify = (error = {}, values) => {
+  if (!values.email) {
+    error.username = toast.error("Email Required...!");
+  } else if (values.email.includes(" ")) {
+    error.username = toast.error("Wrong Email...!");
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    error.email = toast.error("Invalid email address...!");
   }
   return error;
 };

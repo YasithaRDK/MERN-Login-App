@@ -26,7 +26,7 @@ const Username = () => {
           <div className="title flex flex-col items-center">
             <h4 className="text-5xl font-bold">Hello Again!</h4>
             <span className="py-4 text-xl w-2/3 text-center text-gray-500">
-              Explore More by connection with us
+              Explore More by connection with us.
             </span>
           </div>
           <form className="py-1" onSubmit={formik.handleSubmit}>
@@ -42,7 +42,7 @@ const Username = () => {
                 placeholder="Username"
               />
               <button className={styles.btn} type="submit">
-                Lets Go
+                Let&apos;s Go
               </button>
             </div>
             <div className="text-center py-4">
